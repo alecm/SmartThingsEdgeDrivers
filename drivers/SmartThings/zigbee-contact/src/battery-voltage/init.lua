@@ -58,6 +58,7 @@ local battery_handler = function(driver, device, value, zb_rx)
       battery_pct = 0
     end
     device:emit_event(battery.battery(battery_pct))
+	device:send(clusters.PowerConfiguration.attributes.BatteryVoltage:read(device))
  end
 end
 
