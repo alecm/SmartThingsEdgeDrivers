@@ -49,8 +49,7 @@ local zigbee_contact_driver_template = {
     require("aurora-contact-sensor"),
     require("contact-temperature-sensor"),
     require("multi-sensor"),
-    require("smartsense-multi"),
-    require("quirky-tripper")
+    require("smartsense-multi")
   },
   ias_zone_configuration_method = constants.IAS_ZONE_CONFIGURE_TYPE.AUTO_ENROLL_RESPONSE
 }
