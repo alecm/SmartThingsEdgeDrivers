@@ -43,11 +43,10 @@ local battery_handler = function(driver, device, value, zb_rx)
     minVolts = 15
     maxVolts = 34
 
-    device:send(clusters.PowerConfiguration.attributes.BatteryVoltage:read(device))
-    ---value = utils.clamp_value(value.value, minVolts, maxVolts)
     
+    value = utils.clamp_value(value.value, minVolts, maxVolts)
     device:emit_event(battery.battery(batteryMap[value]))
-    
+    device:send(clusters.PowerConfiguration.attributes.BatteryVoltage:read(device))
   else
     if device:get_manufacturer() == "Universal Electronics Inc" or device:get_manufacturer() == "Visonic" then
       minVolts = 2.1
